@@ -1,20 +1,42 @@
 package com.task.rtjava7;
 
-public class Country {
-    private final long id;
-    private final String content;
+import com.fasterxml.jackson.annotation.JsonProperty;
+import com.fasterxml.jackson.annotation.JsonPropertyOrder;
 
-    public Country(long id, String content) {
+import java.util.SplittableRandom;
+
+@JsonPropertyOrder({"id", "name", "foundationDay"})
+public class Country {
+
+    private final long id;
+    @JsonProperty("name")
+    private String name;
+    @JsonProperty("foundationDay")
+    private String foundationDay;
+
+    public Country(long id, String name, String foundationDay) {
         this.id = id;
-        this.content = content;
+        this.name = name;
+        this.foundationDay = foundationDay;
     }
 
     public long getId() {
         return id;
     }
 
-    public String getContent() {
-        return content;
+    public String getName() {
+        return this.name;
     }
 
+    public void setName(String name){
+        this.name = name;
+    }
+
+    public String getFoundationDay(){
+        return this.foundationDay;
+    }
+
+    public void setFoundationDay(String foundationDay){
+        this.foundationDay = foundationDay;
+    }
 }
