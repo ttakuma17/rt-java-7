@@ -1,17 +1,12 @@
 package com.task.rtjava7;
 
-import com.fasterxml.jackson.annotation.JsonProperty;
 import com.fasterxml.jackson.annotation.JsonPropertyOrder;
-
-import java.util.SplittableRandom;
 
 @JsonPropertyOrder({"id", "name", "foundationDay"})
 public class Country {
 
     private final long id;
-    @JsonProperty("name")
     private String name;
-    @JsonProperty("foundationDay")
     private String foundationDay;
 
     public Country(long id, String name, String foundationDay) {

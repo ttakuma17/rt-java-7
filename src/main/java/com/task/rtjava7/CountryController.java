@@ -1,18 +1,16 @@
 package com.task.rtjava7;
 
 import java.util.concurrent.atomic.AtomicLong;
+
 import org.springframework.web.bind.annotation.*;
 
 @RestController
 public class CountryController {
-    private static final String template = "国名：%s 建国記念日：%s";
+
     private final AtomicLong counter = new AtomicLong();
 
     @GetMapping("/countries")
-    public Country getCountryInfo(
-            @RequestParam(value="name")  String name,
-            @RequestParam(value="foundationDay") String foundationDay
-    ) {
+    public Country getCountryInfo(@RequestParam(value="name") String name, @RequestParam(value="foundationDay") String foundationDay) {
         return new Country(counter.incrementAndGet(), name, foundationDay);
     }
 
